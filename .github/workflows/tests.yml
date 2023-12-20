@@ -31,6 +31,9 @@ jobs:
         with:
           maven-version: 3.8.2
 
+      - uses: browser-actions/setup-chromium@latest
+      - run: chromium --version
+
       - name: All the Tests and Coverage check
         run: mvn clean install
 
