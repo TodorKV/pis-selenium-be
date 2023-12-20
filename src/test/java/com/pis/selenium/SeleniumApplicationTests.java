@@ -14,7 +14,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 @SpringBootTest
 class SeleniumApplicationTests {
 
-    public static final String URL = "http://localhost:4200/";
+    public static final String URL = "https://pis-selenium-fe.up.railway.app/";
     private WebDriver webDriver;
 
     @BeforeEach
@@ -50,7 +50,9 @@ class SeleniumApplicationTests {
 		WebElement passwordField = webDriver.findElement(By.id("password"));
 		WebElement confirmPasswordField = webDriver.findElement(By.id("confirmPassword"));
 		WebElement submitButton = webDriver.findElement(By.id("submit-btn"));
-		assertEquals("true", submitButton.getAttribute("ng-reflect-disabled"));
+		String classAttributeValue = submitButton.getAttribute("class");
+		boolean isPDisabled = classAttributeValue.contains("p-disabled");
+		assertEquals(true, isPDisabled);
 
 		fullNameField.sendKeys("");
 		emailField.sendKeys("test@test.com");
@@ -68,7 +70,9 @@ class SeleniumApplicationTests {
 		WebElement passwordField = webDriver.findElement(By.id("password"));
 		WebElement confirmPasswordField = webDriver.findElement(By.id("confirmPassword"));
 		WebElement submitButton = webDriver.findElement(By.id("submit-btn"));
-		assertEquals("true", submitButton.getAttribute("ng-reflect-disabled"));
+		String classAttributeValue = submitButton.getAttribute("class");
+		boolean isPDisabled = classAttributeValue.contains("p-disabled");
+		assertEquals(true, isPDisabled);
 
 		fullNameField.sendKeys(" ");
 		emailField.sendKeys("test@test.com");
@@ -86,7 +90,9 @@ class SeleniumApplicationTests {
 		WebElement passwordField = webDriver.findElement(By.id("password"));
 		WebElement confirmPasswordField = webDriver.findElement(By.id("confirmPassword"));
 		WebElement submitButton = webDriver.findElement(By.id("submit-btn"));
-		assertEquals("true", submitButton.getAttribute("ng-reflect-disabled"));
+		String classAttributeValue = submitButton.getAttribute("class");
+		boolean isPDisabled = classAttributeValue.contains("p-disabled");
+		assertEquals(true, isPDisabled);
 
 		fullNameField.sendKeys("Test Test");
 		emailField.sendKeys("invalidemail");
@@ -104,7 +110,10 @@ class SeleniumApplicationTests {
 		WebElement passwordField = webDriver.findElement(By.id("password"));
 		WebElement confirmPasswordField = webDriver.findElement(By.id("confirmPassword"));
 		WebElement submitButton = webDriver.findElement(By.id("submit-btn"));
-		assertEquals("true", submitButton.getAttribute("ng-reflect-disabled"));
+		String classAttributeValue = submitButton.getAttribute("class");
+		boolean isPDisabled = classAttributeValue.contains("p-disabled");
+		assertEquals(true, isPDisabled);
+
 		fullNameField.sendKeys("Test Test");
 		emailField.sendKeys("test@test.com");
 		passwordField.sendKeys("123");
@@ -121,7 +130,10 @@ class SeleniumApplicationTests {
 		WebElement passwordField = webDriver.findElement(By.id("password"));
 		WebElement confirmPasswordField = webDriver.findElement(By.id("confirmPassword"));
 		WebElement submitButton = webDriver.findElement(By.id("submit-btn"));
-		assertEquals("true", submitButton.getAttribute("ng-reflect-disabled"));
+		String classAttributeValue = submitButton.getAttribute("class");
+		boolean isPDisabled = classAttributeValue.contains("p-disabled");
+		assertEquals(true, isPDisabled);
+
 		fullNameField.sendKeys("Test Test");
 		emailField.sendKeys("test@test.com");
 		passwordField.sendKeys("Test@12345");
